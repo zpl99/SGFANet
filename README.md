@@ -3,7 +3,7 @@ Implementation of the paper: <SGFANet: A Sparse Geometric Feature Attention Netw
 
 The paper is under the revision of the IEEE TGRS.
 
-This page is not the final version, after the revision, we will upload all the source code. But now we only show the implementation of our method. 
+This page is not the final version, after the revision, we will upload all the source code.
 
 ## Contents
 
