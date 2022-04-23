@@ -31,7 +31,7 @@ Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
 Download them and make sure to put the pretrained models as the following structure
 
  ```
-project
+Your project
   ├── pretrained_models
   |   ├── resnet50-deep.pth
   │   ├── resnet101-deep.pth
