@@ -16,5 +16,5 @@ The paper is now under the revision of IEEE TGRS.
 ## Overview
 <div align="center">
 <img src="images/fig2.jpg" width="700px"/>
-<p> Overall structure of our proposed FPT. Different texture patterns indicate different feature transformers, and different color represents feature maps with different scales. "Conv" denotes a 3 × 3 convolution with the output dimension of 256. Without loss of generality, the top/bottom layer feature maps has no rendering/grounding transformer.</p>
+<p> Frameworks of the proposed SGFANet. (A) The overall pipeline of the proposed SGFANet, which follows a FPN-like structure, including a bottom-up basic hierarchical feature extractor, a top-down FPN composited by SBSM, GFM and GT, and a light-weight decoder. (B) The sparse boundary fragment sampler module (SBSM), which serves for sampling Tok-K representative feature points about the building boundary (i.e., the edge and corner). K is a hyper-parameter and can be different for edges and corners. (C) The gated fusion module (GFM). It is utilized to calculate the affinity of the selected point-wise features.</p>
 </div>
