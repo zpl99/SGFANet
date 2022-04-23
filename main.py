@@ -8,7 +8,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def get_args():
-    # TODO:增加APEX支持
     parser = argparse.ArgumentParser(description='Semantic Segmentation')
     parser.add_argument("--dataset", type=str, default="INRIA-0.3")
     parser.add_argument("--batch_size", type=int, default=16)
