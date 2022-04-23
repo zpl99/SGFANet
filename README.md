@@ -44,7 +44,7 @@ Your project
   ```
 
 ## Utilization
-See the main.py, we give some examples about training and inference.
+See the main.py, we give some examples about how to train and test.
 ## Citation
 
 ## Question
