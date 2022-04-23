@@ -14,4 +14,4 @@ The paper is now under the revision of IEEE TGRS.
 - [Question](#Question)
 
 ## Overview
-! [frameworks of the SGFANet] (images/fig2.jpg)
+! [frameworks of the SGFANet](images/fig2.jpg)
