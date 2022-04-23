@@ -26,7 +26,7 @@ This page is not the final version, after the revision, we will upload all the s
 ## Data
 
 ## PretrainedModels
-pretrained resnet-50 and resnet-101: Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
+Pretrained resnet-50 and resnet-101: Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
 
 Download them and make sure to put the pretrained models as the following structure
 
