@@ -14,3 +14,4 @@ The paper is now under the revision of IEEE TGRS.
 - [Question](#Question)
 
 ## Overview
+! [frameworks of the SGFANet] (https://github.com/zpl99/SGFANet/blob/main/images/fig2.jpg)
