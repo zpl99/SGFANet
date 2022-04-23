@@ -41,4 +41,4 @@ def setup_nets(args):
         return model, SGFANet_fn
 
     else:
-        assert False, "模型指定有误，请检查！"
+        assert False, "please check the args"
