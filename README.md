@@ -14,4 +14,7 @@ The paper is now under the revision of IEEE TGRS.
 - [Question](#Question)
 
 ## Overview
-! [frameworks of the SGFANet](images/fig2.jpg)
+<div align="center">
+<img src="images/fig2.jpg" width="700px"/>
+<p> Overall structure of our proposed FPT. Different texture patterns indicate different feature transformers, and different color represents feature maps with different scales. "Conv" denotes a 3 × 3 convolution with the output dimension of 256. Without loss of generality, the top/bottom layer feature maps has no rendering/grounding transformer.</p>
+</div>
