@@ -29,13 +29,20 @@ This page is not the final version, after the revision, we will upload all the s
 For resnet-50 and resnet-101
 Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
 Download them and make sure to put the pretrained models as the following structure
- coco
+
+ ```
+project
   ├── pretrained_models
   |   ├── resnet50-deep.pth
   │   ├── resnet101-deep.pth
-  └── nets
-      ├── ```
+  └── Nets
+      ├── ......
+  └── Loss
+      ├── ......
+  ......
+  
   ```
+
 ## Utilization
 See the main.py, we give some examples about training and inference.
 ## Citation
