@@ -1,5 +1,5 @@
 # SGFANet
-Implementation of the paper: <SGFANet: A Sparse Geometric Feature Attention Network for Building Segmentation from Low-resolution Remote Sensing Images>. 
+Implementation of the paper: <Learning Sparse Geometric Featurefor Building Segmentation from Low-resolution Remote Sensing Images>. 
 
 The paper is under the revision of the IEEE TGRS.
 
