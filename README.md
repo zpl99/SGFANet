@@ -1,7 +1,7 @@
 # SGFANet
-Implementation of the paper: Learning Sparse Geometric Feature for Building Segmentation from Low-resolution Remote Sensing Images. 
+Implementation of the paper: Learning Sparse Geometric Features for Building Segmentation from Low-resolution Remote Sensing Images. 
 
-The paper is under the revision of the IEEE TGRS.
+The paper is under revision.
 
 This page is not the final version, after the revision, we will upload all the source code.
 
