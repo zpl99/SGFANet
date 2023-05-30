@@ -1,10 +1,7 @@
-
-
-from Nets.SGFANet.sgfanet_main_file import DeepR50_SGFANet
+from Nets.SGFANet.sgfanet_main_file import DeepR50_SGFANet, DeepR101_SGFANet
 from Loss import loss
 import numpy as np
 import torch
-import torch.nn as nn
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -20,6 +17,7 @@ def wrap_network_in_dataparallel(net, use_apex_data_parallel=False):
         net = torch.nn.DataParallel(net)
     return net
 
+
 def SGFANet_fn(net, batch, threshold=0.5):
     result = batch
     image, label, body, boundary, image_name, corner = result["image"], result["label"], result["body"], result[
@@ -32,13 +30,15 @@ def SGFANet_fn(net, batch, threshold=0.5):
     return loss, out_new, label, image_name
 
 
-
-
 def setup_nets(args):
-    if args.networks == "SGFANet_edge64_corner16":
+    if args.networks == "Resnet50_SGFANet_edge64_corner16":
         model = DeepR50_SGFANet(num_classes=args.num_classes, edge_points=64, corner_points=16,
-                                                 gated=True, criterion=loss.JointEdgeCornerSegLightLossSGFANet(classes=args.num_classes))
+                                gated=True, criterion=loss.JointEdgeCornerSegLightLossSGFANet(classes=args.num_classes))
         return model, SGFANet_fn
-
+    elif args.networks == "Resnet101_SGFANet_edge64_corner16":
+        model = DeepR101_SGFANet(num_classes=args.num_classes, edge_points=64, corner_points=16,
+                                 gated=True,
+                                 criterion=loss.JointEdgeCornerSegLightLossSGFANet(classes=args.num_classes))
+        return model, SGFANet_fn
     else:
         assert False, "please check the args"

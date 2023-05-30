@@ -1,5 +1,5 @@
 """
-Loss.py
+Including loss functions
 """
 import logging
 import numpy as np
@@ -480,7 +480,7 @@ class JointEdgeCornerSegLightLossSGFANet(nn.Module):
         losses = {}
 
         losses['seg_loss'] = self.seg_weight * self.seg_loss(seg_in, mask)
-        num_edge = len(edge_in)  # 与corner的数量相同
+        num_edge = len(edge_in)  # Same as the number of corners
         for i in range(num_edge):
             edge_pred = edge_in[i]
             corner_pred = corner_in[i]
@@ -499,89 +499,3 @@ class JointEdgeCornerSegLightLossSGFANet(nn.Module):
                                                                                           valid_corner)
         return losses
 
-
-class JointEdgeCornerSegLightLossPfnet_CengShu(nn.Module):
-
-    def __init__(self, classes, ignore_index=255, mode='train', edge_weight=1, corner_weight=1,
-                 seg_weight=1, ohem=False, dice=False):
-        super(JointEdgeCornerSegLightLossPfnet_CengShu, self).__init__()
-        self.num_classes = classes
-        self.dice_loss = dice
-        if mode == 'train':
-            if ohem:
-                self.seg_loss = OhemCrossEntropy2dTensor(ignore_index=ignore_index).cuda()
-            else:
-                self.seg_loss = nn.CrossEntropyLoss().cuda()
-        elif mode == 'val':
-            self.seg_loss = nn.BCEWithLogitsLoss().cuda()
-        if self.dice_loss:
-            self.edge_loss = BinaryDiceLoss()
-
-        self.ignore_index = ignore_index
-        self.edge_weight = edge_weight
-        self.corner_weight = corner_weight
-        self.seg_weight = seg_weight
-
-    def bce2d(self, input, target):
-        """
-        For edge
-        """
-        target = target.unsqueeze(1)
-        log_p = input.transpose(1, 2).transpose(2, 3).contiguous().view(1, -1)
-        target_t = target.transpose(1, 2).transpose(2, 3).contiguous().view(1, -1)
-        target_trans = target_t.clone()
-        pos_index = (target_t == 1)
-        neg_index = (target_t == 0)
-        ignore_index = (target_t > 1)
-
-        target_trans[pos_index] = 1
-        target_trans[neg_index] = 0
-
-        pos_index = pos_index.data.cpu().numpy().astype(bool)
-        neg_index = neg_index.data.cpu().numpy().astype(bool)
-        ignore_index = ignore_index.data.cpu().numpy().astype(bool)
-
-        weight = torch.Tensor(log_p.size()).fill_(0)
-        weight = weight.numpy()
-        pos_num = pos_index.sum()
-        neg_num = neg_index.sum()
-        sum_num = pos_num + neg_num
-        weight[pos_index] = neg_num * 1.0 / sum_num  # 增加前景权重
-        weight[neg_index] = pos_num * 1.0 / sum_num  # 降低背景权重
-
-        weight[ignore_index] = 0
-
-        weight = torch.from_numpy(weight).cuda()
-        log_p = log_p.cuda()
-        target_t = target_t.cuda()
-        loss = F.binary_cross_entropy_with_logits(log_p, target_t, weight, size_average=True)
-        return loss
-
-    def forward(self, inputs, targets):
-        seg_in, edge_in, corner_in = inputs
-        mask, edge_mask, corner_mask = targets
-        edge_mask = edge_mask.squeeze(dim=1)
-        corner_mask = corner_mask.squeeze(dim=1)
-        mask = torch.squeeze(mask, dim=1)
-        mask = mask.long()
-        losses = {}
-
-        losses['seg_loss'] = self.seg_weight * self.seg_loss(seg_in, mask)
-        num_edge = len(edge_in)  # 与corner的数量相同
-        for i in range(num_edge):
-            edge_pred = edge_in[i]
-            corner_pred = corner_in[i]
-            if not self.dice_loss:
-                losses[f'edge_loss_layer{3 - i}'] = self.edge_weight * self.bce2d(edge_pred,
-                                                                                  edge_mask)
-                losses[f'corner_loss_layer{3 - i}'] = self.corner_weight * self.bce2d(corner_pred, corner_mask)
-            else:
-                device = edge_pred.device
-                edge_mask.to(device)
-                valid = torch.ones_like(edge_mask)
-                corner_mask.to(device)
-                valid_corner = torch.ones_like(corner_mask)
-                losses[f'edge_loss_layer{3 - i}'] = self.edge_weight * self.edge_loss(edge_pred, edge_mask, valid)
-                losses[f'corner_loss_layer{3 - i}'] = self.edge_weight * self.corner_loss(corner_pred, corner_mask,
-                                                                                          valid_corner)
-        return losses

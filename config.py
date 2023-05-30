@@ -3,9 +3,9 @@
 # Config is used to set dataset path for training and testing
 ##############################
 
-from __future__ import absolute_import #
-from __future__ import division #
-from __future__ import print_function #
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 from __future__ import unicode_literals
 
 import torch
@@ -16,17 +16,7 @@ __C = AttrDict()
 cfg = __C
 
 __C.DATASET = AttrDict()
-__C.DATASET.HR = r"E:\data\MiddleResolutionSegData\hr_new"
-__C.DATASET.Gaofen = r"E:\data\MiddleResolutionSegData\hr"
-__C.DATASET.Inria = "/media/dell/shihaoze/lzp/dataset/Inria-0.3"
-__C.DATASET.Inria_03 = "/media/dell/shihaoze/lzp/dataset/Inria-0.3"
-__C.DATASET.Inria_06 = "/media/dell/shihaoze/lzp/dataset/Inria-0.6"
-__C.DATASET.Inria_09 = "/media/dell/shihaoze/lzp/dataset/Inria-0.9"
-__C.DATASET.Inria_12 = "/media/dell/shihaoze/lzp/dataset/Inria-1.2"
-__C.DATASET.Massachusetts = r"/media/dell/shihaoze/lzp/dataset/MassachusettsNew"
-__C.DATASET.LSQData = r"C:\Users\Dell\Desktop\Data"
-__C.DATASET.WHUBuilding = r"/home/dell/lzp/dataset/WHU"
-__C.DATASET.GF4_5 = r"/media/dell/shihaoze/lzp/dataset/GF45_NEW"
+__C.DATASET.GF4_5 = r"./Data/GF45"
 __C.MODEL = AttrDict()
 __C.MODEL.BN = 'regularnorm'
 __C.MODEL.BNFUNC = torch.nn.BatchNorm2d
