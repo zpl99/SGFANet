@@ -1,20 +1,11 @@
 # SGFANet
-Implementation of the paper: Learning Sparse Geometric Features for Building Segmentation from Low-resolution Remote Sensing Images. 
-
-The paper is under revision.
-
-This page is not the final version, after the revision, we will upload all the source code.
-
+Implementation of the paper: Learning Sparse Geometric Features for Building Segmentation from Low-Resolution Remote-Sensing Images 
 ## Contents
-
 - [Overview](#Overview)
 - [Requirements](#Requirements)
-- [Data](#Data)
-- [PretrainedModels](#PretrainedModels)
+- [Data and PretrainedModels](#Data and PretrainedModels)
 - [Utilization](#Utilization)
 - [Citation](#Citation)
-- [Question](#Question)
-
 ## Overview
 <div align="center">
 <img src="images/fig2.jpg" width="700px"/>
@@ -22,14 +13,23 @@ This page is not the final version, after the revision, we will upload all the s
 </div>
 
 ## Requirements
+imagecodecs-lite
+opencv-python
+opencv-contrib-python
+torch==1.7
+torchvision
+tensorboardX
+scikit-image
+Pillow
+scikit-learn
+SciPy
+pycococreator
+pycocotools
+## Data and PretrainedModels
 
-## Data
-
-## PretrainedModels
 Pretrained resnet-50 and resnet-101: Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
 
 Download them and make sure to put the pretrained models as the following structure
-
  ```
 Your project
   ├── pretrained_models
@@ -44,8 +44,16 @@ Your project
   ```
 
 ## Utilization
-See the main.py, we give some examples about how to train and test.
-## Citation
 
-## Question
+## Citation
+@article{liu2023learning,
+  title={Learning Sparse Geometric Features for Building Segmentation from Low-Resolution Remote-Sensing Images},
+  author={Liu, Zeping and Tang, Hong},
+  journal={Remote Sensing},
+  volume={15},
+  number={7},
+  pages={1741},
+  year={2023},
+  publisher={MDPI}
+}
 
