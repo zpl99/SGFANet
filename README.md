@@ -42,7 +42,7 @@ Dataset: Baidu Pan Link: https://pan.baidu.com/s/1QcqaCzzK_62nk4IoiApjtA u5wf
 
 Pretrained resnet-50 and resnet-101: Baidu Pan Link: https://pan.baidu.com/s/1I2a0FTtuS6O9p1NqatFKvA 74b5
 
-Download them and make sure to put the pretrained models as the following structure
+Download them and make sure to put the dataset and pretrained models as the following structure
  ```
 Your project
   ├── Data
