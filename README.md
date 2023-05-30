@@ -3,7 +3,7 @@ Implementation of the paper: Learning Sparse Geometric Features for Building Seg
 ## Contents
 - [Overview](#Overview)
 - [Requirements](#Requirements)
-- [Data and PretrainedModels](#Data and PretrainedModels)
+- [Preparations](#Preparations)
 - [Utilization](#Utilization)
 - [Citation](#Citation)
 ## Overview
@@ -25,7 +25,7 @@ scikit-learn
 SciPy
 pycococreator
 pycocotools
-## Data and PretrainedModels
+## Preparations
 
 Pretrained resnet-50 and resnet-101: Baidu Pan Link: https://pan.baidu.com/s/1aGd-9u65T14-hAPF0MCmGA   s4fs
 
